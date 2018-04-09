@@ -1,0 +1,6 @@
+*.o
+.flavor
+.objs
+sshotul.so
+assets.h
+cert

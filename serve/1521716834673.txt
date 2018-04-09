@@ -1,0 +1,10 @@
+{
+  "Name": "verteine",
+  "DestinationType": "ImageUploader, TextUploader, FileUploader",
+  "RequestURL": "https://ssul.vertesine.com/upload",
+  "FileFormName": "data",
+  "Headers": {
+    "authorization": "simplekey123"
+  },
+  "ResponseType": "RedirectionURL"
+}
