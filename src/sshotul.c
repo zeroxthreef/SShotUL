@@ -43,7 +43,7 @@ mime_t mimes[] = { /* this is taken from my in progress vertesine backend code *
   {"application/octet-stream", ""}
 };
 
-const char *reply = "<html><meta name=\"description\" content=\"Terrible screenshot/file uploading service\"><meta name=\"DC.title\" content=\"SSUL File Uploading Thing\"><title>SShotUL</title><center><h1>Screen Shot Uploader</h1><br><center>This is only for me lol. If you want the auth key, email me at zeroxthreef@gmail.com</center></center><br><br><marquee>you can find this on github at LINK_SOON_TO_COME</marquee></html>";
+const char *reply = "<html><meta name=\"description\" content=\"Terrible screenshot/file uploading service\"><meta name=\"DC.title\" content=\"SSUL File Uploading Thing\"><title>SShotUL</title><center><h1>Screen Shot Uploader</h1><br><center>This is only for me lol. If you want the auth key, email me at zeroxthreef@gmail.com</center></center><br><br><marquee>you can find this on github at <a href=\"https://github.com/zeroxthreef/SShotUL\">this link</a></marquee></html>";
 
 int	home(struct http_request *);
 
