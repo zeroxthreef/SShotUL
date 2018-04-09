@@ -168,29 +168,33 @@ int upload(struct http_request *req)
 
 	http_request_header(req, "authorization", &authorization);
 
-	if(authorization == NULL)
-	{
-		kore_log(LOG_AUTH, "No auth key");
-
-		http_response_header(req, "Content-Type", "text/html"); /* for the page */
-		http_response(req, 403, "no auth key", strlen("no auth key"));
-		return KORE_RESULT_OK;
-	}
-
-	if(strncmp(key, authorization, strlen(authorization)) != 0)
-	{
-		kore_log(LOG_AUTH, "Invalid auth key [%s]", authorization);
-
-		http_response_header(req, "Content-Type", "text/html"); /* for the page */
-		http_response(req, 403, "invalid auth key", strlen("invalid auth key"));
-		return KORE_RESULT_OK;
-	}
-	kore_free(key);
-
-	/* if the auth key was right */
 
 	if(req->method == HTTP_METHOD_POST)
 	{
+		if(authorization == NULL)
+		{
+			kore_log(LOG_AUTH, "No auth key");
+
+			http_response_header(req, "Content-Type", "text/html"); /* for the page */
+			http_response(req, 403, "no auth key", strlen("no auth key"));
+			kore_free(key);
+			return KORE_RESULT_OK;
+		}
+
+		/* if(strncmp(key, authorization, strlen(authorization)) != 0) */
+		if(strstr(key, authorization) == NULL)
+		{
+			kore_log(LOG_AUTH, "Invalid auth key [%s]", authorization);
+
+			http_response_header(req, "Content-Type", "text/html"); /* for the page */
+			http_response(req, 403, "invalid auth key", strlen("invalid auth key"));
+			kore_free(key);
+			return KORE_RESULT_OK;
+		}
+		kore_free(key);
+
+		/* if the auth key was right */
+
 		http_populate_multipart_form(req);
 
 
