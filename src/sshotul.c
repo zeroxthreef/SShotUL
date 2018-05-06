@@ -232,15 +232,15 @@ void scanFiles() /* gave up a better way of doing it for this. It works ok so wh
 
       if(fileCount == 0)/* add the first file */
       {
-        printf("adding first file\n");
+        //printf("adding first file\n");
         if(strcmp(dire->d_name, ".") == 0 || strcmp(dire->d_name, "..") == 0 || strrchr(dire->d_name, '.') == NULL)
         {
           /* not adding file */
-          printf("not adding [%s]\n", dire->d_name);
+          //printf("not adding [%s]\n", dire->d_name);
         }
         else
         {
-          printf("adding [%s]\n", dire->d_name);
+          //printf("adding [%s]\n", dire->d_name);
           files[fileCount].ext = kore_strdup(strrchr(dire->d_name, '.'));
           files[fileCount].count = 1;
           asprintf(&tempstr, "serve/%s", dire->d_name);
@@ -256,7 +256,7 @@ void scanFiles() /* gave up a better way of doing it for this. It works ok so wh
         if(strcmp(dire->d_name, ".") == 0 || strcmp(dire->d_name, "..") == 0 || strrchr(dire->d_name, '.') == NULL)
         {
           /* not adding file */
-          printf("not adding [%s]\n", dire->d_name);
+          //printf("not adding [%s]\n", dire->d_name);
         }
         else
         {
@@ -267,7 +267,7 @@ void scanFiles() /* gave up a better way of doing it for this. It works ok so wh
           {
             if(strcmp(files[i].ext, strrchr(dire->d_name, '.')) == 0)
             {
-              printf("found %s\n", files[i].ext);
+              //printf("found %s\n", files[i].ext);
 
               asprintf(&tempstr, "serve/%s", dire->d_name);
               files[i].size += GetFileSize(tempstr);
@@ -282,7 +282,7 @@ void scanFiles() /* gave up a better way of doing it for this. It works ok so wh
               found = 0;
             }
           }
-          printf("found: %d\n", found);
+          //printf("found: %d\n", found);
           if(!found)
           {
             files = kore_realloc(files, sizeof(file_t) * (fileCount + 1));
@@ -290,7 +290,7 @@ void scanFiles() /* gave up a better way of doing it for this. It works ok so wh
             {
               kore_log(LOG_CRIT, "mem error");
             }
-            printf("not found, adding %s\n", dire->d_name);
+            //printf("not found, adding %s\n", dire->d_name);
             files[fileCount].ext = kore_strdup(strrchr(dire->d_name, '.'));
             files[fileCount].count = 1;
 
