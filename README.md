@@ -7,3 +7,11 @@ Using the snowflake generating files (snowflake.c, snowflake.h, stats.h) from ht
 ## Dependencies
 
 Just need the kore http framework
+
+## Screenshots
+
+What the default settings look like:
+
+![alt text](https://ssul.vertesine.com/4Ga9Q4GzafBxfC2OJ8gBZJPbnvA.png)
+
+![alt text](https://ssul.vertesine.com/OPZ7IcDcyxBcUsEpl+FSYEPiqhw.png)
