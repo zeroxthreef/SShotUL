@@ -602,7 +602,7 @@ int upload(struct http_request *req)
         kore_msg_send(KORE_MSG_WORKER_ALL, MESSAGE_ID, "update", strlen("update"));
 
 
-				asprintf(&redir, "%s/%s%s", URL, IDstr, strrchr(file->filename, '.'));
+				asprintf(&redir, "%s/%s%s", URL, finalTemp, strrchr(file->filename, '.'));
 				kore_log(LOG_NOTICE, "File uploaded [%s] [%s]", file->filename, IDstr);
 				http_response_header(req, "Content-Type", "text/html"); /* for the page */
 				http_response_header(req, "Location", redir);
