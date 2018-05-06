@@ -1,7 +1,7 @@
 {
-  "Name": "verteine",
+  "Name": "ssul",
   "DestinationType": "ImageUploader, TextUploader, FileUploader",
-  "RequestURL": "https://ssul.vertesine.com/upload",
+  "RequestURL": "https://subdomain.yourdomain.com/upload",
   "FileFormName": "data",
   "Headers": {
     "authorization": "simplekey123"
